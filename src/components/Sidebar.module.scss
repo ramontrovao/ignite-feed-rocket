@@ -1,0 +1,47 @@
+@import "../variables.scss";
+
+.sidebar {
+    background-color: $gray-800;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cover {
+    width: 100%;
+    height: 72px;
+    object-fit: cover;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar footer {
+    border-top: 1px solid $gray-600;
+    margin-top: 1.5rem;
+    padding: 1.5rem 2rem 2rem;
+}
+
+.sidebar footer a {
+    display: block;
+    background-color: transparent;
+    color: $green-500;
+    border: 1px solid $green-500;
+    border-radius: 8px;
+    height: 50px;
+    padding: 0 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        color: $gray-100;
+        background-color: $green-500;
+    }
+}
