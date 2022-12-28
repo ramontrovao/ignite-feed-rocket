@@ -6,6 +6,12 @@
     box-sizing: 0;
 }
 
+:focus {
+    transition: 0.2s;
+    outline: transparent;
+    box-shadow: 0 0 0 2px $green-500;
+}
+
 body {
     background-color: $gray-900;
     color: $gray-300;
