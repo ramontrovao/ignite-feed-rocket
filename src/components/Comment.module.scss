@@ -1,0 +1,88 @@
+@import "../variables.scss";
+
+.comment {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.commentBox {
+    flex: 1;
+}
+
+.commentContent {
+    background-color: $gray-700;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.commentContent header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.authorAndTime strong {
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.authorAndTime time {
+    display: block;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: $gray-400;
+}
+
+.commentContent button {
+    border: 0;
+    background-color: transparent;
+    color: $gray-400;
+    cursor: pointer;
+    font-size: 1.3rem;
+    line-height: 0;
+    border-radius: 4px;
+    transition: color 0.3s;
+
+    &:hover {
+        color: $red-500;
+    }
+}
+
+.commentContent p {
+    margin-top: 1rem;
+    color: $gray-300;
+}
+
+.commentBox footer {
+    margin-top: 1rem;
+}
+
+.commentBox footer button {
+    background: transparent;
+    border: 0;
+    border-radius: 2px;
+    color: $gray-400;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        color: $green-300;
+    }
+}
+
+.commentBox footer button svg {
+    margin-right: 0.5rem;
+}
+
+.commentBox footer button svg {
+    margin-right: 0.5rem;
+}
+
+.commentBox footer button span::before {
+    content: "\2022";
+    padding: 0 0.25rem;
+}

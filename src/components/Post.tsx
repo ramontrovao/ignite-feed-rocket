@@ -1,13 +1,14 @@
 import styles from "./Post.module.scss"
 import { Comment } from "./Comment"
+import { Avatar } from "./Avatar"
 
 export const Post = () => {
     return (
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
-                    <img className={styles.avatar} src="https://github.com/ramontrovao.png" />
-
+                    
+                    <Avatar hasBorder={true} src="https://github.com/ramontrovao.png"/>
                     <div className={styles.authorInfo}>
                         <strong>Ramon Pinheiro</strong>
                         <span>Web Developer</span>
@@ -42,9 +43,10 @@ export const Post = () => {
             </form>
 
             <div className={styles.commentList}>
-                <Comment />
-                <Comment />
-                <Comment />
+                <Comment avatarSrc="https://github.com/guicastro13.png"/>
+                <Comment avatarSrc="https://github.com/levieber.png"/>
+                <Comment avatarSrc="https://github.com/vinybergamo.png"/>
+                <Comment avatarSrc="https://github.com/douglasfdev.png"/>
             </div>
         </article>
     )
