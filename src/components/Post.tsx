@@ -1,40 +1,70 @@
 import styles from "./Post.module.scss"
+import { useState } from "react"
+import { format, formatDistanceToNow } from "date-fns"
+import ptBR from "date-fns/locale/pt-BR"
 import { Comment } from "./Comment"
 import { Avatar } from "./Avatar"
 
-export const Post = () => {
+interface PostProps {
+    author: {avatar_url: string, name: string, role: string},
+    publishedAt: Date
+    content: Array<{ type: string, content: string, }>,
+}
+
+export const Post = ({ author, publishedAt, content }:PostProps) => {
+    const [comments, setComments] = useState<Array<string>>([])
+    const [newCommentText, setNewCommentText] = useState('')
+
+    const publishedDateFormated = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {locale: ptBR})
+    const publishedAtRelativeToNow = formatDistanceToNow(publishedAt, {
+        locale: ptBR,
+        addSuffix: true
+    })
+
+    const handleCreateNewComment = (event: any) => {
+        event.preventDefault()
+        
+        setComments([...comments, newCommentText])
+        setNewCommentText('')
+    }
+
+    const handleNewCommentChange = (event: any) => {
+        setNewCommentText(event.target.value)
+    }
+
+    const deleteComment = (comment:string) => {
+        console.log(`Deletar comentário ${comment}`)
+    }
+
     return (
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
                     
-                    <Avatar hasBorder={true} src="https://github.com/ramontrovao.png"/>
+                    <Avatar hasBorder={true} src={author.avatar_url}/>
                     <div className={styles.authorInfo}>
-                        <strong>Ramon Pinheiro</strong>
-                        <span>Web Developer</span>
+                        <strong>{author.name}</strong>
+                        <span>{author.role}</span>
                     </div>
                 </div>
 
                 <time 
-                title="28 de dezembro às 10:07"
-                dateTime="2022-05-11 08:13:30">Publicado há uma hora</time>
+                title={publishedDateFormated}
+                dateTime={publishedAt.toISOString()}>{publishedAtRelativeToNow}</time>
             </header>
 
             <div className={styles.content}>
-                <p>Oi gente, tudo bem? Por favor escutem EDEN.</p>
-
-                <p>EDEN é um artista muito bom, porém ele não é muito reconhecido. Gostaria que vocês dessem uma chance e escutassem algumas músicas dele. Obrigado pela atenção!</p>
-
-                <a href="https://www.youtube.com/watch?v=E0FfQsK9ExQ&list=OLAK5uy_lFJjeLAtmFNU78u8q7ZpGOY-FzdylObAg">Veja o album vertigo</a>
-
-                <p><a href="#">#music #art #eden</a></p>
+                {content.map(line => line.type === 'paragraph' ?  <p key={line.content}>{line.content}</p> : 
+                <p key={line.content}><a href="#">{line.content}</a></p>)}
             </div>
 
-            <form className={styles.commentForm}>
+            <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
                 <strong>Deixe seu feedback</strong>
 
                 <textarea 
                   placeholder="Deixe um comentário"
+                  onChange={handleNewCommentChange}
+                  value={newCommentText}
                 />
 
                 <footer>
@@ -43,10 +73,9 @@ export const Post = () => {
             </form>
 
             <div className={styles.commentList}>
-                <Comment avatarSrc="https://github.com/guicastro13.png"/>
-                <Comment avatarSrc="https://github.com/levieber.png"/>
-                <Comment avatarSrc="https://github.com/vinybergamo.png"/>
-                <Comment avatarSrc="https://github.com/douglasfdev.png"/>
+                {comments.map(comment => (
+                    <Comment content={comment} avatarSrc="https://github.com/ramontrovao.png" onDeleteComment={deleteComment} key={comment} />
+                ))}
             </div>
         </article>
     )
