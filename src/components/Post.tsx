@@ -52,7 +52,7 @@ export const Post = ({ author, publishedAt, content }:PostProps) => {
             <header>
                 <div className={styles.author}>
                     
-                    <Avatar hasBorder={true} src={author.avatar_url}/>
+                    <Avatar hasBorder={false} src={author.avatar_url}/>
                     <div className={styles.authorInfo}>
                         <strong>{author.name}</strong>
                         <span>{author.role}</span>

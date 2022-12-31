@@ -11,7 +11,7 @@ export const Sidebar = () => {
             />
 
             <div className={styles.profile}>
-            <Avatar src="https://github.com/ramontrovao.png"/>
+            <Avatar src="https://github.com/ramontrovao.png" hasBorder={true}/>
                 <strong>Ramon Pinheiro</strong>
                 <span>Web Developer</span>
 
