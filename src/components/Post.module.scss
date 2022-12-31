@@ -49,11 +49,11 @@
 
 .content a {
     font-weight: bold;
-    color: $green-500;
+    color: $pink-500;
     text-decoration: none;
 
     &:hover {
-        color: $green-300;
+        color: $pink-300;
     }
 }
 
@@ -97,13 +97,18 @@
     margin-top: 1rem;
     border-radius: 8px;
     border: 0;
-    background-color: $green-500;
+    background-color: $pink-500;
     color: $gray-100;
     font-weight: bold;
     cursor: pointer;
     transition: border-color 0.1s;
 
-    &:hover {
-        background-color: $green-300;
+    &:not(:disabled):hover {
+        background-color: $pink-300;
+    }
+
+    &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
     }
 }

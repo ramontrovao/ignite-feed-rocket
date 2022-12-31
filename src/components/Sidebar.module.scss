@@ -41,8 +41,8 @@
 .sidebar footer a {
     display: block;
     background-color: transparent;
-    color: $green-500;
-    border: 1px solid $green-500;
+    color: $pink-500;
+    border: 1px solid $pink-500;
     border-radius: 8px;
     height: 50px;
     padding: 0 1.5rem;
@@ -58,6 +58,6 @@
 
     &:hover {
         color: $gray-100;
-        background-color: $green-500;
+        background-color: $pink-500;
     }
 }

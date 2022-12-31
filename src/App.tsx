@@ -1,6 +1,7 @@
 import { Header } from './components/Header'
 import { Sidebar } from './components/Sidebar'
 import { Post } from './components/Post'
+import { Footer } from './components/Footer'
 
 import styles from "./App.module.scss"
 import './global.scss'
@@ -23,21 +24,21 @@ const posts: Array<PostAttributes> = [
       content: [
           {type: 'paragraph', content: 'Oi gente, tudo bem? Por favor escutem EDEN.'},
           {type: 'paragraph', content: 'EDEN é um artista muito bom, porém ele não é muito reconhecido. Gostaria que vocês dessem uma chance e escutassem algumas músicas dele. Obrigado pela atenção!'},
-          {type: 'link', content: 'escute eden aqui'}
+          {type: 'link', content: 'Escute eden aqui'}
       ],
       publishedAt: new Date('2022-12-29 11:00:00')
   },
   {
     id: 2,
     author: {
-        avatar_url: 'https://github.com/levieber.png',
-        name: 'Levi Eber',
+        avatar_url: 'https://github.com/filipedev6.png',
+        name: 'Felipe',
         role: 'Web Developer',
     },
     content: [
-        {type: 'paragraph', content: 'Oi gente, tudo bem? Por favor escutem EDEN.'},
-        {type: 'paragraph', content: 'EDEN é um artista muito bom, porém ele não é muito reconhecido. Gostaria que vocês dessem uma chance e escutassem algumas músicas dele. Obrigado pela atenção!'},
-        {type: 'link', content: 'escute eden aqui'}
+        {type: 'paragraph', content: 'Olá, estou procurando vagas.'},
+        {type: 'paragraph', content: 'Sou desenvolvedor e busco novas oportunidades remotas ou presenciais. Me chamgem no link abaixo.'},
+        {type: 'link', content: 'Link do meu LinkedIn'}
     ],
     publishedAt: new Date('2022-12-24 11:00:00')
 }
@@ -62,6 +63,8 @@ const  App = () => {
           ))}
         </main>
       </div>
+
+      <Footer />
     </div>
   )
 }
