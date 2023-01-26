@@ -1,6 +1,6 @@
 # Ignite Feed
 
-![preview](./assets/preview.png)
+![preview](./src/assets/preview.png)
 
 Ignite Feed is a project made with Diego Fernandes, one of instructors of Rocketseat (bootcamp). I learned the basics concepts of React such as state and imutability.
 
